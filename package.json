@@ -17,6 +17,7 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build"
   },
+  "repository": "github:aaccurso/data-structures",
   "peerDependencies": {},
   "husky": {
     "hooks": {
