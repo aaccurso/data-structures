@@ -1,34 +1,11 @@
-export class Queue<T> {
-  private list: Array<T>;
-  readonly maxSize: number;
+import { List } from '../list';
 
-  constructor(list: Array<T>, maxSize: number) {
-    this.list = list;
-    this.maxSize = maxSize;
-  }
-
+export class Queue<T> extends List<T> {
   enqueue(item: T): this {
-    if (this.isFull()) {
-      throw new Error(`Queue reached max size of ${this.maxSize}`);
-    }
-    this.list.push(item);
-
-    return this;
+    return super.push(item);
   }
 
   dequeue(): T | undefined {
     return this.list.shift();
-  }
-
-  size(): number {
-    return this.list.length;
-  }
-
-  isEmpty(): boolean {
-    return this.list.length === 0;
-  }
-
-  isFull(): boolean {
-    return this.size() === this.maxSize;
   }
 }
