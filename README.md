@@ -1,5 +1,7 @@
 # Data Structures
 
+![Github CI](https://github.com/aaccurso/data-structures/workflows/CI/badge.svg)
+
 This library was inspired by [Data Structures you should know as a JavaScript developer](https://blog.bitsrc.io/data-structures-you-should-know-as-a-javascript-developer-9a35eb3b319c).
 
 ## Local Development
