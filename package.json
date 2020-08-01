@@ -30,7 +30,8 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "data-structures",
+  "name": "@aaccurso/data-structures",
+  "description": "Basic data structures in TypeScript.",
   "author": "Alan Accurso",
   "module": "dist/data-structures.esm.js",
   "devDependencies": {
