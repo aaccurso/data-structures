@@ -24,7 +24,11 @@ export class Queue<T> {
     return this.list.length;
   }
 
-  private isFull(): boolean {
+  isEmpty(): boolean {
+    return this.list.length === 0;
+  }
+
+  isFull(): boolean {
     return this.size() === this.maxSize;
   }
 }
