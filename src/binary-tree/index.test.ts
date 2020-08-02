@@ -1,4 +1,4 @@
-import { BinaryTree } from './index';
+import { BinaryTree, Visitor } from './index';
 
 describe('Binary Tree', () => {
   it('should create root node', () => {
@@ -13,9 +13,7 @@ describe('Binary Tree', () => {
     tree.setRightNode(new BinaryTree<number>(3));
 
     expect(tree.getValue()).toEqual(1);
-    // @ts-ignore
     expect(tree.getLeftNode().getValue()).toEqual(2);
-    // @ts-ignore
     expect(tree.getRightNode().getValue()).toEqual(3);
   });
 
@@ -25,8 +23,9 @@ describe('Binary Tree', () => {
     tree.setRightNode(new BinaryTree<number>(3));
 
     let result: Array<number> = [];
+    const visitor: Visitor<number> = value => result.push(value);
 
-    tree.traverseInorder(value => result.push(value));
+    tree.traverseInorder(visitor);
 
     expect(result).toEqual([2, 1, 3]);
   });

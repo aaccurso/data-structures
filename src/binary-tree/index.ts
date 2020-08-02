@@ -1,4 +1,4 @@
-type Visitor<T> = (value: T) => void;
+export type Visitor<T> = (value: T) => void;
 
 export class BinaryTree<T> {
   readonly value: T;
