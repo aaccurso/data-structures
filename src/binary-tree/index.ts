@@ -1,43 +1,48 @@
-export type Visitor<T> = (value: T) => void;
+export type Visitor<D> = (data: D) => void;
+export type DataKey = number;
+export interface Data {
+  key: DataKey;
+}
 
-export class BinaryTree<T> {
-  readonly value: T;
-  leftNode: BinaryTree<T> | null = null;
-  rightNode: BinaryTree<T> | null = null;
+export class BinaryTree<D extends Data> {
+  readonly data: D;
 
-  constructor(value: T) {
-    this.value = value;
+  leftNode: BinaryTree<D> | null = null;
+  rightNode: BinaryTree<D> | null = null;
+
+  constructor(data: D) {
+    this.data = data;
   }
 
-  getValue(): T {
-    return this.value;
+  getData(): D {
+    return this.data;
   }
 
-  setLeftNode(leftNode: BinaryTree<T>): this {
+  setLeftNode(leftNode: BinaryTree<D>): this {
     this.leftNode = leftNode;
 
     return this;
   }
 
-  getLeftNode(): BinaryTree<T> | null {
+  getLeftNode(): BinaryTree<D> | null {
     return this.leftNode;
   }
 
-  setRightNode(rightNode: BinaryTree<T>): this {
+  setRightNode(rightNode: BinaryTree<D>): this {
     this.rightNode = rightNode;
 
     return this;
   }
 
-  getRightNode(): BinaryTree<T> | null {
+  getRightNode(): BinaryTree<D> | null {
     return this.rightNode;
   }
 
-  traverseInorder(visitor: Visitor<T>): void {
+  traverseInorder(visitor: Visitor<D>): void {
     if (this.leftNode) {
       this.leftNode.traverseInorder(visitor);
     }
-    visitor(this.value);
+    visitor(this.data);
     if (this.rightNode) {
       this.rightNode.traverseInorder(visitor);
     }
